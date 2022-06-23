@@ -1,0 +1,42 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image-button-container {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image-button-container > img {
+    width: 70vh;
+    margin-bottom: 4vh;
+}
+
+.login-button {
+    font-size: 4vh;
+    width: 70vh;
+    height: 10vh;
+}
+
+@media screen and (max-width: 450px) {
+    .login-image-button-container {
+        margin: 20vh 15vh 0vh 15vh;
+    }
+
+    .login-image-button-container > img {
+        width: 40vh;
+    }
+
+    .login-button {
+        width: 40vh;
+        font-size: 3.5vh;
+        height: 10vh;
+    }
+    
+  }

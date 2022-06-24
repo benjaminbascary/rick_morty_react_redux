@@ -22,12 +22,19 @@ type Disabled = {
 const Header = () => {
     
     return (
-        
+
     <Box className='header-container'>
-        <Heading className='header-heading' style={{margin: '0.5vh 0vh 0vh 0.5vh'}}>Rick & Morty App</Heading>
+        <Heading 
+            className='header-heading' 
+            style={{margin: '0.5vh 0vh 0vh 0.5vh'}}
+        >Rick & Morty App
+        </Heading>
         <Img className='header-image' src='./assets/logo.ico' alt='logo'/>
         <Menu>
-            <MenuButton style={{margin: '1vh 0vh 0vh 0vh'}} as={Button} rightIcon={<ChevronDownIcon />}>
+            <MenuButton 
+                style={{margin: '1vh 0vh 0vh 0vh', width: '20vh', height: '6vh'}} 
+                as={Button} 
+                rightIcon={<ChevronDownIcon />}>
                 <Text>MENU</Text>
             </MenuButton>
             <MenuList style={{border: '1px solid grey'}}>

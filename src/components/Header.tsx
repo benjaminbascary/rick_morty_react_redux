@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import '../styles/Header.css';
 import { 
     Box, 
@@ -15,9 +15,14 @@ import {
     ChevronDownIcon,
 } from '@chakra-ui/icons';
 
+type Disabled = {
+    disabled: boolean
+}
+
 const Header = () => {
-  return (
     
+    return (
+        
     <Box className='header-container'>
         <Heading className='header-heading' style={{margin: '0.5vh 0vh 0vh 0.5vh'}}>Rick & Morty App</Heading>
         <Img className='header-image' src='./assets/logo.ico' alt='logo'/>

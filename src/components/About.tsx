@@ -8,3 +8,5 @@ export const About = () => {
     </Box>
   )
 }
+
+export default About;

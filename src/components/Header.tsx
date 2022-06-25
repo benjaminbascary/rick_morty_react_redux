@@ -14,15 +14,19 @@ import {
 import { 
     ChevronDownIcon,
 } from '@chakra-ui/icons';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
-type Disabled = {
-    disabled: boolean
-}
 
 const Header = () => {
     
-    return (
+    const navigate = useNavigate();
 
+    const handleLogOut = (route: string) => {
+        console.log(navigate);
+        navigate(route);
+    }
+
+    return (
     <Box className='header-container'>
         <Heading 
             className='header-heading' 
@@ -34,13 +38,29 @@ const Header = () => {
             <MenuButton 
                 style={{margin: '1vh 0vh 0vh 0vh', width: '20vh', height: '6vh'}} 
                 as={Button} 
-                rightIcon={<ChevronDownIcon />}>
-                <Text>MENU</Text>
+                rightIcon={<ChevronDownIcon />}
+            >
+            <Text>MENU</Text>
             </MenuButton>
             <MenuList style={{border: '1px solid grey'}}>
-                <MenuItem>About</MenuItem>
                 <MenuItem>
-                   <a href="https://rickandmortyapi.com/" target='_blank'>Visit the API site!</a> 
+                    <Button 
+                        variant='ghost'
+                        onClick={() => handleLogOut('/about')}
+                    >About
+                    </Button>
+                </MenuItem>
+                <MenuItem>
+                    <Button variant='ghost'>
+                        <a href="https://rickandmortyapi.com/" target='_blank'>API</a>
+                    </Button>
+                </MenuItem>
+                <MenuItem>
+                    <Button 
+                        variant='ghost' 
+                        onClick={() => handleLogOut('/')}
+                    >EXIT
+                    </Button>
                 </MenuItem>
             </MenuList>
         </Menu>

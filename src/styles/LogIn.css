@@ -1,4 +1,6 @@
 .login-container {
+    background-color: rgb(90, 90, 90);
+    height: 87vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +8,6 @@
 }
 
 .login-image-button-container {
-    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,16 +26,12 @@
 }
 
 .login-loading-spinner {
-    margin: 5vh 0vh 0vh 0vh;
+    margin: 0vh 0vh 0vh 0vh;
     width: 8vh;
     height: 8vh;
 }
 
 @media screen and (max-width: 450px) {
-    .login-image-button-container {
-        margin: 20vh 15vh 0vh 15vh;
-    }
-
     .login-image-button-container > img {
         width: 40vh;
     }

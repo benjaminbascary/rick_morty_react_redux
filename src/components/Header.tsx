@@ -36,13 +36,13 @@ const Header = () => {
         <Img className='header-image' src='./assets/logo.ico' alt='logo'/>
         <Menu>
             <MenuButton 
-                style={{margin: '1vh 0vh 0vh 0vh', width: '20vh', height: '6vh'}} 
+                style={{margin: '1vh 0vh 0vh 0vh', width: '20vh', height: '6vh', color: 'black'}} 
                 as={Button} 
                 rightIcon={<ChevronDownIcon />}
             >
             <Text>MENU</Text>
             </MenuButton>
-            <MenuList style={{border: '1px solid grey'}}>
+            <MenuList style={{border: '1px solid grey', color: 'black'}}>
                 <MenuItem>
                     <Button 
                         variant='ghost'

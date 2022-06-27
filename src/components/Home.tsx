@@ -37,7 +37,7 @@ const Home = (): JSX.Element => {
           )
         }
       </Box>
-      <Grid className='characters-container' templateColumns='repeat(4, 5fr)' gap={6}>
+      <Grid className='characters-container' gap={6}>
         {
           data ? (
             data.results.map(eachCharacter => {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Character as CharacterProps } from '../types/apiResponses';
 import { characterStatusHandler } from '../helpers/characterStatus';
+import { aliveStatusColor } from '../types/aliveStatus';
 import '../styles/Character.css';
 import { 
   Avatar,
@@ -20,10 +21,11 @@ import {
   Image
 } from '@chakra-ui/react';
 
+
 export const Character = ( character : CharacterProps): JSX.Element => {
 
-  const [aliveColor, setAliveColor] = useState<string>();
-  const {isOpen, onOpen, onClose} = useDisclosure();
+  const [ aliveColor, setAliveColor ] = useState<aliveStatusColor>();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     setAliveColor(characterStatusHandler.getStatusColor(character.status));
@@ -45,22 +47,22 @@ export const Character = ( character : CharacterProps): JSX.Element => {
         </Box>
 
         <Modal size='2xl' isOpen={isOpen} onClose={onClose} isCentered motionPreset='slideInBottom' scrollBehavior='inside'>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader className='character-modal-header'>{character.name}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody className='character-modal-body'>
-            <Image className='character-modal-image' src={character.image} />
-            <Box className='character-modal-info-container'>
-              <Text><strong>Origin: </strong>{character.origin.name}</Text>
-            </Box>
-          </ModalBody>
-          <ModalFooter display='flex' alignItems='center' justifyContent='center'>
-            <Button width='30vh' size='lg' colorScheme='green' mr={3} onClick={onClose} variant='outline'>
-              Close
-            </Button>
-          </ModalFooter>
-        </ModalContent>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader className='character-modal-header'>{character.name}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody className='character-modal-body'>
+              <Image className='character-modal-image' src={character.image} />
+              <Box className='character-modal-info-container'>
+                <Text><strong>Origin: </strong>{character.origin.name}</Text>
+              </Box>
+            </ModalBody>
+            <ModalFooter display='flex' alignItems='center' justifyContent='center'>
+              <Button width='30vh' size='lg' colorScheme='green' mr={3} onClick={onClose} variant='outline'>
+                Close
+              </Button>
+            </ModalFooter>
+          </ModalContent>
       </Modal>
     </Box>
   )

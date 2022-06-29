@@ -1,10 +1,12 @@
 import axios from 'axios';
-
+import Urls from '../helpers/urls';
 
 class ApiHandler {
 
-    private defaultCharactersEndpoint: string = 'https://rickandmortyapi.com/api/character/?page='
-    private defaultPage: number = 1;
+    private defaultCharactersEndpoint: string = Urls.characters;
+    private defaultLocationsEndpoint: string = Urls.locations;
+    private defaultEpisodesEndpoint : string = Urls.episodes;
+    private defaultPage: number = Urls.defaultPage;
 
     constructor() {}
 
@@ -19,11 +21,21 @@ class ApiHandler {
     }
 
     getLocations = async () => {
-
+        try {
+            const response = await axios.get(`${this.defaultLocationsEndpoint}`);
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     getEpisodes = async () => {
-
+        try {
+            const response = await axios.get(`${this.defaultLocationsEndpoint}`);
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
     }
         
 }

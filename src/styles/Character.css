@@ -23,19 +23,54 @@
     color: rgb(180, 98, 21);
 }
 
+.character-modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.character-modal-image {
+    border-radius: 20px;
+    width: 40vh;
+}
+
+.character-modal-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.character-modal-info-container {
+    margin-left: 3vh;
+}
+
 @media screen and (max-width: 450px) {
     .single-character-container {
         width: 49vh;
         padding: 2vh;
 
     }
-    
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 460px) {
+    .single-character-container {
+        width: 50vh;
+    }  
+}
+
+@media screen and (max-width: 420px) {
+    .single-character-container {
+        width: 42vh;
+    }  
+}
+
+@media screen and (max-width: 380px) {
+    .single-character-container {
+        width: 48vh;
+    }  
+}
+
+@media screen and (max-height: 812px) and (max-width: 376px) {
     .single-character-container {
         width: 43vh;
-    }
-    
-    
+    }  
 }

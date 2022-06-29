@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Character as CharacterProps } from '../types/apiResponses';
+import { characterStatusHandler } from '../helpers/characterStatus';
 import '../styles/Character.css';
 import { 
   Avatar,
@@ -14,10 +15,10 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button
+  Button,
+  Flex,
+  Image
 } from '@chakra-ui/react';
-import { characterStatusHandler } from '../helpers/characterStatus';
-import aliveStatusType from '../types/aliveStatus';
 
 export const Character = ( character : CharacterProps): JSX.Element => {
 
@@ -43,23 +44,24 @@ export const Character = ( character : CharacterProps): JSX.Element => {
             <Text fontSize='small'>{character.location.name}</Text>
         </Box>
 
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal size='2xl' isOpen={isOpen} onClose={onClose} isCentered motionPreset='slideInBottom' scrollBehavior='inside'>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader className='character-modal-header'>{character.name}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            
+          <ModalBody className='character-modal-body'>
+            <Image className='character-modal-image' src={character.image} />
+            <Box className='character-modal-info-container'>
+              <Text><strong>Origin: </strong>{character.origin.name}</Text>
+            </Box>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+          <ModalFooter display='flex' alignItems='center' justifyContent='center'>
+            <Button width='30vh' size='lg' colorScheme='green' mr={3} onClick={onClose} variant='outline'>
               Close
             </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
-    
     </Box>
   )
 }

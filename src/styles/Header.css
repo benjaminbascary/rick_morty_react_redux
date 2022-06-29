@@ -11,11 +11,7 @@
     display: none;
 }
 
-@media screen and (max-width: 900px) {
-    .header-image {
-        display: none;
-    }
-}
+
 
 @media screen and (max-width: 450px) {
     .header-heading {

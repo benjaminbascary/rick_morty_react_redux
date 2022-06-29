@@ -10,7 +10,7 @@ const Home = (): JSX.Element => {
 
   const [data, setData] = useState<APIInterface>();
   const [loading, setLoading] = useState<boolean>(true);
-  const [server, setServer] = useState(false);
+  const [server, setServer] = useState<boolean>(false);
 
   const loadData = async () => {
     const result = rickAndMortyAPIcaller.getCharacters()
@@ -37,6 +37,12 @@ const Home = (): JSX.Element => {
           )
         }
       </Box>
+      {
+        data &&
+         <Box className='data-info-container'>
+          <Text fontWeight='bold' color="white">Count: {data.info.count}</Text>
+         </Box>
+      }
       <Grid className='characters-container' gap={6}>
         {
           data ? (
@@ -52,12 +58,7 @@ const Home = (): JSX.Element => {
         }  
       </Grid>
       
-      {
-        data &&
-         <Box className='data-info-container'>
-          <Text fontWeight='bold' color="white">Count: {data.info.count}</Text>
-         </Box>
-      }
+      
     </Box>
   )
 }

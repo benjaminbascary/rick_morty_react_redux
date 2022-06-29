@@ -15,17 +15,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: rgb(128, 128, 128);
     color: white;
-    padding: 3px;
     border-radius: 4px;
     margin-top: 1vh;
+    padding: 3px 10px 3px 10px;
 }
 
 .data-info-container {
     display: flex;
     flex-direction: row;
-    margin: 2vh 0vh 2vh 0vh;
 }
 
 .data-info-count {
@@ -39,17 +38,24 @@
 .characters-container {
    display: grid;
    grid-template-columns: repeat(4, 5fr);
-   margin: 2vh 0vh 0vh 0vh;
+   margin: 2vh 0vh 3vh 0vh;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
+    .characters-container {
+        display: grid;
+        grid-template-columns: repeat(3, 4fr);
+     }
+}
+
+@media screen and (max-width: 750px) {
     .characters-container {
         display: grid;
         grid-template-columns: repeat(2, 10fr);
      }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
 
     .server-status-container {
         display: flex;

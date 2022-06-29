@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
 import { Character as CharacterProps } from '../types/apiResponses';
-import { characterStatusHandler } from '../helpers/characterStatus';
-import { aliveStatusColor } from '../types/aliveStatus';
+import { useAliveColor } from '../hooks/useAliveColor';
 import '../styles/Character.css';
 import { 
   Avatar,
@@ -24,12 +22,8 @@ import {
 
 export const Character = ( character : CharacterProps): JSX.Element => {
 
-  const [ aliveColor, setAliveColor ] = useState<aliveStatusColor>();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  useEffect(() => {
-    setAliveColor(characterStatusHandler.getStatusColor(character.status));
-  }, [character.status])
+  const [ aliveColor ] = useAliveColor(character);
 
   return (
     <Box className='single-character-container'>

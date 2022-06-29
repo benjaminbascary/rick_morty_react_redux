@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react'
-import '../styles/LogIn.css';
+import { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../styles/LogIn.css';
 import {
   Box, 
   Button, 
@@ -12,6 +12,7 @@ export const Login: FC = () => {
 
   const [ disabled, setDisabled ] = useState<boolean>(false);
   const [ loading, setLoading ] = useState<boolean>(false);
+  
   const navigate = useNavigate();
   const handleLogIn = (): void => {
     setLoading(true);

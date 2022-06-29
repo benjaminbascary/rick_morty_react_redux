@@ -1,29 +1,12 @@
-import { Avatar, Badge, Box, Container, Grid, Heading, ListIcon, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react'
-import { rickAndMortyAPIcaller } from '../services/apiCaller';
-import { APIInterface } from '../types/apiResponses';
+import { Box, Grid, Text } from '@chakra-ui/react';
 import { CheckCircleIcon, WarningIcon } from '@chakra-ui/icons';
 import { Character } from './Character';
+import { useApiData } from '../hooks/useApiData';
 import '../styles/Home.css';
 
 const Home = (): JSX.Element => {
 
-  const [data, setData] = useState<APIInterface>();
-  const [loading, setLoading] = useState<boolean>(true);
-  const [server, setServer] = useState<boolean>(false);
-
-  const loadData = async () => {
-    const result = rickAndMortyAPIcaller.getCharacters()
-    setData(await result);
-  }
-
-  useEffect(() => {
-    loadData();
-    if(!data) {
-      setLoading(false);
-      setServer(true);
-    }
-  }, [])
+  const [data, loading, server] = useApiData();
 
   return (
     <Box className='home-container'>
@@ -51,14 +34,11 @@ const Home = (): JSX.Element => {
                 <Character key={eachCharacter.id} {...eachCharacter} />
               )
             })
-            
           ) : (
           <div>askkads</div>
           )
         }  
       </Grid>
-      
-      
     </Box>
   )
 }

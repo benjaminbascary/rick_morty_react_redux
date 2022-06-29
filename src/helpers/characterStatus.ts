@@ -1,5 +1,3 @@
-import aliveStatusType from "../types/aliveStatus";
-
 class CharacterStatusColor {
     constructor() {}
 

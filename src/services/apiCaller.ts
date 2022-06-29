@@ -6,11 +6,11 @@ class ApiHandler {
     private defaultCharactersEndpoint: string = Urls.characters;
     private defaultLocationsEndpoint: string = Urls.locations;
     private defaultEpisodesEndpoint : string = Urls.episodes;
-    private defaultPage: number = Urls.defaultPage;
+    private defaultPageNumber: number = Urls.defaultPage;
 
     constructor() {}
 
-    getCharacters = async (page: number = this.defaultPage) => {
+    getCharacters = async (page: number = this.defaultPageNumber) => {
         try {
             const response = await axios.get(`${this.defaultCharactersEndpoint}${page}`);
             return response.data
@@ -31,7 +31,7 @@ class ApiHandler {
 
     getEpisodes = async () => {
         try {
-            const response = await axios.get(`${this.defaultLocationsEndpoint}`);
+            const response = await axios.get(`${this.defaultEpisodesEndpoint}`);
             return response.data
         } catch (error) {
             console.log(error)
